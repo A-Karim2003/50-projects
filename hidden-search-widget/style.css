@@ -39,15 +39,16 @@ body {
   left: 0;
   height: 50px;
   width: 50px;
-  transition: transform 0.3 ease;
+  transition: transform 0.3s ease;
 }
 
 .search.active .input {
   width: 200px;
 }
+
 .input:focus,
 button:focus {
-  outline: solid 2px rgba(188, 40, 242, 0.264);
+  outline: solid 2px rgba(212, 157, 232, 0.264);
 }
 
 .search.active button {
