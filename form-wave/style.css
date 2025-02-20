@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: steelblue;
+  color: white;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+
+input {
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+
+  border: none;
+  border-bottom: solid 2px white;
+
+  display: block;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: lightblue;
+  font-size: 1rem;
+  font-weight: 600;
+
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+input:focus,
+input:valid,
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(3, 158, 230, 0.2);
+  border-bottom: solid lightblue;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+}
+
+span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+input:focus + label span,
+input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px);
+}
