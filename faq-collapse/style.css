@@ -1,0 +1,109 @@
+:root {
+  --fontAwsome: "Font Awesome 5 Free";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  overflow: hidden;
+
+  border: solid red 4px;
+}
+
+h1 {
+  margin: 50px 0 30px;
+}
+
+.faq-container {
+  max-width: 600px;
+}
+.faq {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: solid 1px #9fa4a8;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 30px;
+  transition: 0.3s ease;
+}
+.faq.active {
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 255, 179, 0.1);
+}
+
+.faq.active::before,
+.faq.active::after {
+  position: absolute;
+  content: "\f075";
+  font-family: var(--fontAwsome);
+
+  color: #2ecc71;
+  font-size: 7rem;
+  opacity: 0.2;
+
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+
+.faq-title {
+  margin: 0 35px 0 0;
+}
+
+.faq-text {
+  margin: 30px 0 0 0;
+  display: none;
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+.faq-toggle {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-color: #9fa4a8;
+  border-radius: 50%;
+  color: white;
+}
+
+.fa-times {
+  display: none;
+}
+
+.faq.active .fa-times {
+  display: block;
+}
+
+.faq.active .fa-chevron-down {
+  display: none;
+}
