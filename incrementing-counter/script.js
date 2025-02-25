@@ -4,13 +4,11 @@ const counters = document.querySelectorAll(".counter");
 
 counters.forEach((counter) => {
   counter.textContent = 0;
+  const target = Number(counter.dataset.target);
+  const increment = target / 200;
 
   function updateCounter() {
-    const target = Number(counter.dataset.target);
     const currNum = Number(counter.textContent);
-
-    const increment = target / 200;
-
     if (currNum < target) {
       counter.textContent = Math.ceil(currNum + increment);
 
