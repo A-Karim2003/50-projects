@@ -12,5 +12,9 @@ button.addEventListener("click", (e) => {
   circle.style.top = `${yInside}px`;
   circle.style.left = `${xInside}px`;
 
-  e.target.append(circle);
+  button.append(circle);
+
+  setTimeout(() => {
+    circle.remove(circle);
+  }, 1000);
 });
