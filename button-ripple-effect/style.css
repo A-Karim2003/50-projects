@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+button {
+  background-color: purple;
+  color: white;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px 30px;
+  border-radius: 2px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+button .circle {
+  position: absolute;
+  top: 27px;
+  left: 82px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
