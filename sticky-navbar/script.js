@@ -8,8 +8,6 @@ const navHeight = parseFloat(window.getComputedStyle(nav).height);
 const heroHeight = parseFloat(window.getComputedStyle(hero).height);
 const rootMargin = `-${heroHeight - 3 * navHeight}px 0px 0px 0px`;
 
-console.log(rootMargin);
-
 //? Create Observer Options
 const ObserverOptions = {
   root: null,
@@ -21,10 +19,8 @@ const ObserverOptions = {
 
 const observerCallback = ([entry]) => {
   if (entry.isIntersecting) {
-    console.log("is intersecting");
     html.classList.remove("light");
   } else {
-    console.log("is not intersecting");
     html.classList.add("light");
   }
 };
@@ -33,3 +29,14 @@ const observerCallback = ([entry]) => {
 const observer = new IntersectionObserver(observerCallback, ObserverOptions);
 
 observer.observe(hero);
+
+//? adding click effects the on nav links
+
+nav.addEventListener("click", (e) => {
+  const links = nav.querySelectorAll("a");
+  const clickedLink = e.target.closest("a");
+  if (!clickedLink) return;
+
+  links.forEach((link) => link.classList.remove("active"));
+  clickedLink.classList.add("active");
+});
