@@ -28,9 +28,6 @@ async function getUser(username) {
     const response = await axios.get(
       `https://api.github.com/users/${username}`
     );
-
-    console.log(response.data);
-
     const {
       avatar_url,
       followers,
