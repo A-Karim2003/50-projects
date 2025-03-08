@@ -5,23 +5,25 @@ const notificationButton = document.querySelector(".notification-button");
 
 notificationButton.addEventListener("click", () => {
   handleNotification();
-
   const recentNotification = container.firstChild;
-  console.log(recentNotification);
 
   setTimeout(() => {
     container.removeChild(recentNotification);
   }, 3000);
 });
 
-let currentMessage = 0;
 const messages = [
   "Message One",
   "Message Two",
   "Message Three",
   "Message Four",
 ];
-function handleNotification() {
+
+function handleNotification(message = "Invalid Data, Try Again") {
+  //? Create randomMessage
+
+  const randomMessage = message ?? Math.floor(Math.random() * messages.length);
+
   //? Create random color
   const R = Math.floor(Math.random() * 256);
   const G = Math.floor(Math.random() * 256);
@@ -36,15 +38,10 @@ function handleNotification() {
   notificationsContainer.classList.add("notifications-container");
 
   //? Add text to the p element
-  p.textContent = messages[currentMessage];
+  p.textContent = message ?? messages[randomMessage];
 
   //? Add the elements to the DOM
   container.insertAdjacentElement("afterbegin", notificationsContainer);
 
   notificationsContainer.append(p);
-
-  //? Increment the message index
-  currentMessage++;
-
-  if (currentMessage >= messages.length) currentMessage = 0;
 }
