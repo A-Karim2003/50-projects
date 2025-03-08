@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2a2a72;
+  color: white;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.user-form {
+  width: 100%;
+  max-width: 800px;
+}
+
+.user-form input {
+  background-color: rebeccapurple;
+  color: white;
+  font-size: 18px;
+  width: 100%;
+  padding: 1.2rem;
+  margin: 2rem 0;
+  border: none;
+  border-radius: 10px;
+
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.user-form input:focus {
+  outline: solid 1px rgba(221, 160, 221, 0.4);
+}
+
+.user-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card {
+  max-width: 800px;
+  background-color: rebeccapurple;
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card .avatar {
+  height: 150px;
+  min-width: 150px;
+  border: solid 10px #2a2a72;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li strong {
+  font-weight: 500;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+#repos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repo {
+  text-decoration: none;
+  color: white;
+  background-color: #2a2a72;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+}
