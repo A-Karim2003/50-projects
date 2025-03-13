@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: aliceblue;
+}
+
+.counter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h4 {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.counter.hide {
+  animation: hide 0.2s ease-in forwards;
+}
+
+@keyframes hide {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+  }
+}
+
+.final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: scale(0) translate(-50%, -50%);
+  text-align: center;
+}
+
+.final.show {
+  animation: show 0.4s ease-in forwards;
+}
+
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+
+  30% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.nums {
+  color: #3498db;
+  font-size: 50px;
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  height: 50px;
+}
+
+.nums span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(130deg);
+  transform-origin: bottom center;
+}
+
+.nums span.in {
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: goIn 0.5s ease-in-out;
+}
+
+.nums span.out {
+  animation: goOut 0.5s ease-in-out;
+}
+
+@keyframes goIn {
+  0% {
+    transform: translate(-50%, -50%) rotate(120deg);
+  }
+
+  33% {
+    transform: translate(-50%, -50%) rotate(-20deg) rotate(-20deg);
+  }
+
+  66% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes goOut {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(20deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-120deg);
+  }
+}
