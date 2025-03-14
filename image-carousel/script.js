@@ -3,17 +3,25 @@
 const imgs = document.querySelectorAll("img");
 const buttonsContainer = document.querySelector(".buttons-container");
 
+const imgWidth = 500;
+const totalImgs = imgs.length - 1;
+const maxShift = imgWidth * totalImgs * -1;
+
 //? Create automatic slider
-let shift = -500;
+let shift = 0;
+let sliderInterval = startSlider();
+
 function shiftImg() {
-  if (shift < -1500) shift = 0;
-  if (shift > 0) shift = -1500;
+  if (shift < maxShift) shift = 0; // Loop back to start
+  if (shift > 0) shift = maxShift; // Loop to end
   imgs.forEach((img) => (img.style.transform = `translateX(${shift}px)`));
 }
-setInterval(() => {
-  shiftImg();
-  shift -= 500;
-}, 2500);
+function startSlider() {
+  return setInterval(() => {
+    shift -= imgWidth;
+    shiftImg();
+  }, 2500);
+}
 
 //? Create manual slider
 buttonsContainer.addEventListener("click", (e) => {
@@ -21,14 +29,12 @@ buttonsContainer.addEventListener("click", (e) => {
   const nextBtn = e.target.closest("#right");
 
   if (!prevBtn && !nextBtn) return;
+  clearInterval(sliderInterval);
 
-  if (prevBtn) {
-    shift += 500;
-    shiftImg();
-  }
-  if (nextBtn) {
-    shift -= 500;
-    shiftImg();
-  }
-  console.log(shift);
+  if (prevBtn) shift += imgWidth;
+  if (nextBtn) shift -= imgWidth;
+
+  shiftImg();
+
+  sliderInterval = startSlider(); // Restart auto-slide after manual interaction
 });
