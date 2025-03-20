@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fd;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+
+header {
+  background-color: #3e57db;
+  color: white;
+  padding: 30px 20px;
+}
+
+.title {
+  margin: 0;
+}
+
+small {
+  display: inline-block;
+  margin: 5px 0 20px;
+  opacity: 0.8;
+}
+
+header input {
+  background-color: #2b3d99;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 15px;
+  width: 100%;
+}
+
+header input:focus {
+  outline: solid steelblue 0.5px;
+}
+
+.user-list {
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+.user-list li {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-list li img {
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-info {
+  margin-left: 1rem;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-info .user-name,
+.user-info .user-location {
+  margin: 0;
+}
+
+.user-info .user-location {
+  font-size: 14px;
+}
+
+.user-list li:not(:last-of-type) {
+  border-bottom: solid #eee 1px;
+}
+
+.user-list li.hide {
+  display: none;
+}
