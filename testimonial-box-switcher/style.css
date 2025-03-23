@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.testimonial-container {
+  background-color: #476ce4;
+  color: white;
+  border-radius: 1rem;
+  padding: 3rem 5rem;
+  max-width: 768px;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: white;
+  height: 4px;
+  animation: grow 10s linear infinite;
+  transform-origin: left;
+}
+
+@keyframes grow {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    background-color: white;
+  }
+}
+
+.fas {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2.5rem;
+  position: absolute;
+  top: 64px;
+  display: inline-block;
+}
+
+.fa-quote-left {
+  left: 36px;
+}
+
+.fa-quote-right {
+  right: 36px;
+}
+
+@media (max-width: 768px) {
+  .fas {
+    display: none;
+  }
+
+  .testimonial-container {
+    padding: 1rem 2rem;
+  }
+}
+
+.testimonial {
+  text-align: center;
+  line-height: 28px;
+  letter-spacing: 2px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user .user-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-details {
+  margin-left: 1rem;
+}
+
+.username,
+.role {
+  font-weight: normal;
+  margin: 10px 0;
+}
