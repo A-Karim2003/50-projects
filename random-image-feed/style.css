@@ -10,6 +10,19 @@ body {
   align-items: center;
   margin: 0;
 }
+.amount-container {
+  border-bottom: solid 3px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+}
+
+#amount {
+  width: 60px;
+  font-size: 20px;
+}
 
 .grid-container {
   padding: 1rem;
