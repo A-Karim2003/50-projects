@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conic Gradient</title>
+    <style>
+        body {
+            background-color: #011727;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        p {
+            line-height: 1.8rem;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background-color: #1E2232;
+            width: 400px;
+            height: 400px;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .card::after,
+        .card::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+
+            padding: 3px;
+            border-radius: 16px;
+
+            background-image: conic-gradient(from var(--angle), transparent 50%, orange);
+            animation: spin 3s linear infinite
+        }
+
+        .card::before {
+            filter: blur(1.5rem);
+            opacity: 0.5;
+        }
+
+        @keyframes spin {
+            0% {
+                --angle: 0deg;
+            }
+
+            100% {
+                --angle: 360deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- https://www.youtube.com/watch?v=ezP4kbOvs_E&ab_channel=Coding2GO  -->
+
+    <div class="card">
+        <h1>Animate Borders</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Harum ratione quibusdam dignissimos eveniet maxime
+            hic vero vitae blanditiis consectetur dicta!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Harum ratione quibusdam dignissimos eveniet maxime
+            hic vero vitae blanditiis consectetur dicta!
+        </p>
+    </div>
+</body>
+
+</html>

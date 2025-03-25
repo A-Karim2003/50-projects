@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interception Observer</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            height: 100vh;
+            background-color: bisque;
+            border: solid 4px rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        /*
+        1) Start with creation the options. This may include:
+            root: This is the viewport
+            threshold: 1: 100% is visible. 0: 0% is visible
+            rootMargin: This means a margin we can add or subtract from threshold
+
+        2) Now create the observerCallback. The callback runs when any of the
+         observed elements’ visibility changes
+
+            entries.forEach((entry) => {
+                // Each entry describes an intersection change for one observed
+                // target element:
+                //   entry.boundingClientRect
+                //   entry.intersectionRatio
+                //   entry.intersectionRect
+                //   entry.isIntersecting
+                //   entry.rootBounds
+                //   entry.target
+                //   entry.time
+            });
+
+        3) Now create the observer. observer is basically rules we set based on callback and options
+
+        */
+        //===========================================================================================
+
+        const divs = document.querySelectorAll('div');
+
+        const observerOptionss = {
+            root: null,
+            threshold: 0.98,
+            rootMargin: `0px`
+        }
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const r = Math.floor(Math.random() * 256)
+                    const g = Math.floor(Math.random() * 256)
+                    const b = Math.floor(Math.random() * 256)
+
+                    entry.target.style.background = `rgb(${r}, ${g}, ${b})`
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(observerCallback, observerOptionss)
+
+
+        divs.forEach((div) => {
+            observer.observe(div)
+        })
+    </script>
+</body>
+
+</html>
